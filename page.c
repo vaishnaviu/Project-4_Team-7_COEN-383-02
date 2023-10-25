@@ -1,29 +1,40 @@
 #include "PAGE.h"
 
-void Intializing_PGELIst(LISTOFPAGES* pl) {
+void InitializingPageList(LISTOFPAGES* pl) {
+    // Allocate memory for the head of the page list.
     pl->HDL = malloc(sizeof(page));
-    page* it = pl->HDL;
-    int i;
-    for(i=0;i<total_page_count;i++) {
-        it->name = -1; it->PGENUMBER = -1;
-        it->next = NULL;
-        if(i < 99) {
-            it->next = malloc(sizeof(page));
-            it = it->next;
+    
+    // Initialize the page list.
+    page* currentPage = pl->HDL;
+    for (int i = 0; i < total_process; i++) {
+        currentPage->name = -1;
+        currentPage->PGENUMBER = -1;
+        currentPage->next = NULL;
+        
+        if (i < 99) {
+            // Allocate memory for the next page if not at the end of the list.
+            currentPage->next = malloc(sizeof(page));
+            currentPage = currentPage->next;
         }
     }
 }
 
-// displaying all pages
-void PageeDisplayingg(LISTOFPAGES* pl) {
-    page* it = pl->HDL;
+// Display all pages in the list.
+void DisplayPages(LISTOFPAGES* pl) {
+    page* currentPage = pl->HDL;
     int cnt = 0;
-    while(it) {
-        printf(it->name > 0 ? "%03d " : " .  ",it->name, it->CNTER, it->LONE);
+    
+    while (currentPage) {
+        printf(currentPage->name > 0 ? "%03d " : " .  ", currentPage->name, currentPage->CNTER, currentPage->LONE); // Assuming CNTER and LONE are defined somewhere.
         cnt++;
-        if((cnt % 10) == 0) printf("\n");
-        it = it->next;
+        
+        if ((cnt % 10) == 0) {
+            printf("\n");
+        }
+        
+        currentPage = currentPage->next;
     }
+    
     printf("\n");
 }
 
@@ -96,7 +107,9 @@ page* IDwhozPGrFree(LISTOFPAGES* pl,int pid,int PGENUMBER) {
     return NULL;
 }
 
-// comaptring arrival time
-int CMP_ARRtime(const void* a,const void* b) {
-    return ((process*)a)->arrival_time - ((process*)b)->arrival_time;
+// Compare arrival times of processes
+int CompareArrivalTime(const void* a, const void* b) {
+    const int arrivalTimeA = ((process*)a)->arrival_time;
+    const int arrivalTimeB = ((process*)b)->arrival_time;
+    return arrivalTimeA - arrivalTimeB;
 }
