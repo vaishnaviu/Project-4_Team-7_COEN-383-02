@@ -1,6 +1,6 @@
 #include "PAGE.h"
 
-void InitializingPageList(LISTOFPAGES* pl) {
+void initialize_pagelist(LISTOFPAGES* pl) {
     // Allocate memory for the head of the page list.
     pl->HDL = malloc(sizeof(page));
     
@@ -20,7 +20,7 @@ void InitializingPageList(LISTOFPAGES* pl) {
 }
 
 // Display all pages in the list.
-void DisplayPages(LISTOFPAGES* pl) {
+void display_page(LISTOFPAGES* pl) {
     page* currentPage = pl->HDL;
     int cnt = 0;
     
@@ -40,7 +40,7 @@ void DisplayPages(LISTOFPAGES* pl) {
 
 
 // pages which are free
-int PageWhoRFree(LISTOFPAGES* pl,int CNTER) {
+int free_pages(LISTOFPAGES* pl,int CNTER) {
     page* it = pl->HDL;
     while(it) {
         if(it->name == -1) { // page not being used by any process;
@@ -53,7 +53,7 @@ int PageWhoRFree(LISTOFPAGES* pl,int CNTER) {
 }
 
 //memory in pages
-int MEMinPGES(LISTOFPAGES* pl,int pid,int PGENUMBER) {
+int pages_in_memory(LISTOFPAGES* pl,int pid,int PGENUMBER) {
     page* it = pl->HDL;
     while(it) {
         if(it->name == pid && it->PGENUMBER == PGENUMBER) return 1;
@@ -73,7 +73,7 @@ page* PAGEfrreeeg(LISTOFPAGES* pl) {
     return NULL;
 }
 //memeory getting free
-void MEMRFree(LISTOFPAGES* pl,int pid) {
+void free_memory(LISTOFPAGES* pl,int pid) {
     page* it = pl->HDL;
     while(it) {
         if(it->name == pid) {
@@ -85,7 +85,7 @@ void MEMRFree(LISTOFPAGES* pl,int pid) {
 }
 //Page number next one
 
-int PGNUMNXT(int curr_page_no,int max_page_size) {
+int next_page_number(int curr_page_no,int max_page_size) {
     int x = rand()%10;
     if(x < 7) {
         x = curr_page_no+(rand()%3)-1 < 0;
@@ -98,7 +98,7 @@ int PGNUMNXT(int curr_page_no,int max_page_size) {
 }
 
 // Page id which are free
-page* IDwhozPGrFree(LISTOFPAGES* pl,int pid,int PGENUMBER) {
+page* next_page_number(LISTOFPAGES* pl,int pid,int PGENUMBER) {
     page* it = pl->HDL;
     while(it) {
         if(it->name == pid && it->PGENUMBER == PGENUMBER) return it;
@@ -108,7 +108,7 @@ page* IDwhozPGrFree(LISTOFPAGES* pl,int pid,int PGENUMBER) {
 }
 
 // Compare arrival times of processes
-int CompareArrivalTime(const void* a, const void* b) {
+int arrival_time_compare(const void* a, const void* b) {
     const int arrivalTimeA = ((process*)a)->arrival_time;
     const int arrivalTimeB = ((process*)b)->arrival_time;
     return arrivalTimeA - arrivalTimeB;
