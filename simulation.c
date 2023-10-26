@@ -79,7 +79,7 @@ int main(int argc, char* argv[]) {
             while(index < total_process && Q[index].arrival_time <= TimeStamp) {
 
 		        //To check atleast four pages
-                if(PageWhoRFree(&pl, 4)) {
+                if(free_pages(&pl, 4)) {
 			        // if its present then bring it in the memory
                     page* p = PAGEfrreeeg(&pl);
                     p->name = Q[index].name;
@@ -88,7 +88,7 @@ int main(int argc, char* argv[]) {
                     p->CNTER = 1;
                     p->LONE = TimeStamp;
                     printf("<%d, %d, Enter, %d, %d, \n", TimeStamp, Q[index].name, Q[index].size, Q[index].duration);
-                    PageeDisplayingg(&pl);
+                    display_page(&pl);
                     printf(">\n");
                     swappingInProcess++;
                     index++;
@@ -100,10 +100,10 @@ int main(int argc, char* argv[]) {
 		        int j;
 		        for(j=0;j<index;j++) 
                     if(Q[j].duration > 0) {
-                            Q[j].PGCRR = PGNUMNXT(Q[j].PGCRR,Q[j].size);
-                            if(MEMinPGES(&pl,Q[j].name,Q[j].PGCRR)) {
+                            Q[j].PGCRR = next_page_number(Q[j].PGCRR,Q[j].size);
+                            if(pages_in_memory(&pl,Q[j].name,Q[j].PGCRR)) {
 
-                                Page_pointer = IDwhozPGrFree(&pl,Q[j].name,Q[j].PGCRR);
+                                Page_pointer = free_page_name(&pl,Q[j].name,Q[j].PGCRR);
                                 printf("<%d, %d, %d, True, >\n", TimeStamp, Q[j].name, Q[j].PGCRR);
 
                                 Page_pointer->CNTER++;
@@ -138,9 +138,9 @@ int main(int argc, char* argv[]) {
             for(j=0;j<index;j++) if(Q[j].duration > 0) {
                 Q[j].duration--;
                 if(Q[j].duration == 0) {
-                    MEMRFree(&pl,Q[j].name);
+                    free_Memory(&pl,Q[j].name);
                     printf("<%d, %d, Exit, %d, %d, \n", TimeStamp, Q[j].name, Q[j].size, Q[j].duration);
-                    PageeDisplayingg(&pl);
+                    display_page(&pl);
                     printf(">\n");
                 }
             }

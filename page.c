@@ -98,7 +98,7 @@ int next_page_number(int curr_page_no,int max_page_size) {
 }
 
 // Page id which are free
-page* next_page_number(LISTOFPAGES* pl,int name,int PGENUMBER) {
+page* free_page_name(LISTOFPAGES* pl,int name,int PGENUMBER) {
     page* it = pl->HDL;
     while(it) {
         if(it->name == name && it->PGENUMBER == PGENUMBER) return it;
