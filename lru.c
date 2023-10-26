@@ -1,4 +1,4 @@
-#include "PAGE.h"
+#include "page.h"
 
 // LRU algorithm
 void lru(LISTOFPAGES* PLLRU) {

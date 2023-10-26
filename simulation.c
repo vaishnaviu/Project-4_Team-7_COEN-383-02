@@ -1,4 +1,4 @@
-#include "PAGE.h"
+#include "page.h"
 
 int main(int argc, char* argv[]) {
     int PageAccess = 0;
