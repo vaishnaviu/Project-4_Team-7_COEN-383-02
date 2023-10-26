@@ -62,6 +62,6 @@ void fcfs(LISTOFPAGES*);
 void lru(LISTOFPAGES*);
 void lfu(LISTOFPAGES*);
 void mfu(LISTOFPAGES*);
-void random(LISTOFPAGES*);
+void random_function(LISTOFPAGES*);
 
 #endif
