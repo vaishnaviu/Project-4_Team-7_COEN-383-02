@@ -1,6 +1,6 @@
 #include "page.h"
 //random algorithm
-void R_FUNCTION(LISTOFPAGES* PRM) {
+void random(LISTOFPAGES* PRM) {
     page* FITR = PRM->HDL;
     page* PGRNDMEVC = PRM->HDL;
     int CNTER = 0;

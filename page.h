@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define total_process 300
+#define total_process 150
 #define total_duration 60
 #define process_duration 5
 #define total_page_count 100
@@ -62,6 +62,6 @@ void fcfs(LISTOFPAGES*);
 void lru(LISTOFPAGES*);
 void lfu(LISTOFPAGES*);
 void mfu(LISTOFPAGES*);
-void random_function(LISTOFPAGES*);
+void random(LISTOFPAGES*);
 
 #endif
