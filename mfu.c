@@ -1,18 +1,18 @@
 #include "page.h"
 
-void mfu_function(LISTOFPAGES *PMFUL){
-    page* FITMFU = PMFUL->HDL;
-    page* PGMFUEVC = PMFUL->HDL;
-    int max = FITMFU->CNTER;
-    while(FITMFU) {
-        if(FITMFU->CNTER > max){
-            PGMFUEVC = FITMFU;
-            max = FITMFU->CNTER;
+void mfu_function(LISTOFPAGES *mfu_pagelist){
+    page* current_mfu_page = mfu_pagelist->HDL;
+    page* mfu_eviction_page = mfu_pagelist->HDL;
+    int max = current_mfu_page->CNTER;
+    while(current_mfu_page) {
+        if(current_mfu_page->CNTER > max){
+            mfu_eviction_page = current_mfu_page;
+            max = current_mfu_page->CNTER;
         }
-        FITMFU = FITMFU->next;
+        current_mfu_page = current_mfu_page->next;
     }
-    printf("%d / %d", PGMFUEVC->name, PGMFUEVC->PGENUMBER);
-    PGMFUEVC->name = -1;
-    PGMFUEVC->PGENUMBER = -1;
+    printf("%d / %d", mfu_eviction_page->name, mfu_eviction_page->PGENUMBER);
+    mfu_eviction_page->name = -1;
+    mfu_eviction_page->PGENUMBER = -1;
 
 }
