@@ -41,7 +41,7 @@ int pages_in_memory(LISTOFPAGES*,int,int);
 page* PAGEfrreeeg(LISTOFPAGES*);
 
 // freeing memortyss
-void free_memory(LISTOFPAGES*,int);
+void free_Memory(LISTOFPAGES*,int);
 
 //initializing all pages
 void initialize_pagelist(LISTOFPAGES*);

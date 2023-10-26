@@ -65,22 +65,22 @@ int pages_in_memory(LISTOFPAGES* pl,int pid,int PGENUMBER) {
 
 //
 page* PAGEfrreeeg(LISTOFPAGES* pl) {
-    page* it = pl->HDL;
-    while(it) {
-        if(it->name == -1) return it;
-        it = it->next;
+    page* pg = pl->HDL;
+    while(pg) {
+        if(pg->name == -1) return pg;
+        pg = pg->next;
     }
     return NULL;
 }
 //memeory getting free
-void free_memory(LISTOFPAGES* pl,int pid) {
-    page* it = pl->HDL;
-    while(it) {
-        if(it->name == pid) {
-            it->name = -1;
-            it->PGENUMBER = -1;
+void free_Memory(LISTOFPAGES* pl,int p_id) {
+    page* pg = pl->HDL;
+    while(pg) {
+        if(pg->name == p_id) {
+            pg->name = -1;
+            pg->PGENUMBER = -1;
         }
-        it = it->next;
+        pg = pg->next;
     }
 }
 //Page number next one
