@@ -1,6 +1,6 @@
 #include "page.h"
 //LfU algorithm
-void lfu(LISTOFPAGES* plLFU) {
+void lfu_function(LISTOFPAGES* plLFU) {
     page* fit_LFU = plLFU->HDL;
     page* pg_removed = plLFU->HDL;
     int min = fit_LFU->CNTER;

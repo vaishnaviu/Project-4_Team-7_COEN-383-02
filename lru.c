@@ -1,7 +1,7 @@
 #include "page.h"
 
 // LRU algorithm
-void lru(LISTOFPAGES* PLLRU) {
+void lru_function(LISTOFPAGES* PLLRU) {
   // Find the least recently used page.
   page* least_recently_used_page = PLLRU->HDL;
   int least_recently_used_time = least_recently_used_page->LONE;

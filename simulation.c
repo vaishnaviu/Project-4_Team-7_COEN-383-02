@@ -22,15 +22,15 @@ int main(int argc, char* argv[]) {
     }
 
     if(strcmp(argv[1], "FCFS") == 0){
-        AlgoFunction = fcfs;
+        AlgoFunction = fcfs_function;
     }else if(strcmp(argv[1], "LRU") == 0){
-        AlgoFunction = lru;
+        AlgoFunction = lru_function;
     }else if(strcmp(argv[1], "LFU") == 0){
-        AlgoFunction = lfu;
+        AlgoFunction = lfu_function;
     }else if(strcmp(argv[1], "MFU") == 0){
-        AlgoFunction = mfu;
+        AlgoFunction = mfu_function;
     }else if(strcmp(argv[1], "Random") == 0){
-        AlgoFunction = random;
+        AlgoFunction = random_function;
     }else {
         printf("usage: %s [FCFS, LRU, LFU, MFU or Random] randomSeed(RAND for random).\n", argv[0]);
         return -1;

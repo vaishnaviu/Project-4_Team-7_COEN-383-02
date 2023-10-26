@@ -1,6 +1,6 @@
 #include "page.h"
 //FCFS algorithm
-void fcfs(LISTOFPAGES* fcfs_pagelist) {
+void fcfs_function(LISTOFPAGES* fcfs_pagelist) {
     //Initialize pointer to the current page in the list
     page* fcfs_currentPage = fcfs_pagelist->HDL;
 

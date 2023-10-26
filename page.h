@@ -58,10 +58,10 @@ int arrival_time_compare(const void* ,const void*);
 // Pagesid who are free
 page* free_page_name(LISTOFPAGES*,int,int);
 
-void fcfs(LISTOFPAGES*);
-void lru(LISTOFPAGES*);
-void lfu(LISTOFPAGES*);
-void mfu(LISTOFPAGES*);
-void random(LISTOFPAGES*);
+void fcfs_function(LISTOFPAGES*);
+void lru_function(LISTOFPAGES*);
+void lfu_function(LISTOFPAGES*);
+void mfu_function(LISTOFPAGES*);
+void random_function(LISTOFPAGES*);
 
 #endif

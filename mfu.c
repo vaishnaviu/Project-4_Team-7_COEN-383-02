@@ -1,6 +1,6 @@
 #include "page.h"
 
-void mfu(LISTOFPAGES *PMFUL){
+void mfu_function(LISTOFPAGES *PMFUL){
     page* FITMFU = PMFUL->HDL;
     page* PGMFUEVC = PMFUL->HDL;
     int max = FITMFU->CNTER;
