@@ -87,12 +87,11 @@ void free_Memory(LISTOFPAGES* pl,int p_id) {
 
 int next_page_number(int curr_page_no,int max_page_size) {
     int x = rand()%11;
-    if(0<= x < 7) {
-        x = curr_page_no+(rand()%3)-1 < 0;
-    } else {
-        x = rand()%max_page_size;
-        while(abs(x-curr_page_no) <= 1) 
-            x = rand()%max_page_size;
+    if(0<=x || x < 7) {
+        x = curr_page_no+(rand()%3)-1;
+    } 
+    else {
+        x = curr_page_no+(rand()%8)+2; 
     }
     return x;
 }
