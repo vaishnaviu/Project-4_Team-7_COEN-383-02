@@ -53,10 +53,10 @@ int free_pages(LISTOFPAGES* pl,int CNTER) {
 }
 
 //memory in pages
-int pages_in_memory(LISTOFPAGES* pl,int pid,int PGENUMBER) {
+int pages_in_memory(LISTOFPAGES* pl,int name,int PGENUMBER) {
     page* it = pl->HDL;
     while(it) {
-        if(it->name == pid && it->PGENUMBER == PGENUMBER) return 1;
+        if(it->name == name && it->PGENUMBER == PGENUMBER) return 1;
         it = it->next;
     }
     return 0;
@@ -98,10 +98,10 @@ int next_page_number(int curr_page_no,int max_page_size) {
 }
 
 // Page id which are free
-page* next_page_number(LISTOFPAGES* pl,int pid,int PGENUMBER) {
+page* next_page_number(LISTOFPAGES* pl,int name,int PGENUMBER) {
     page* it = pl->HDL;
     while(it) {
-        if(it->name == pid && it->PGENUMBER == PGENUMBER) return it;
+        if(it->name == name && it->PGENUMBER == PGENUMBER) return it;
         it = it->next;
     }
     return NULL;
