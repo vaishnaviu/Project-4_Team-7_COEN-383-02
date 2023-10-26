@@ -25,7 +25,7 @@ void display_page(LISTOFPAGES* pl) {
     int cnt = 0;
     
     while (currentPage) {
-        printf(currentPage->name > 0 ? "%03d " : " .  ", currentPage->name, currentPage->CNTER, currentPage->LONE);
+        printf(currentPage->name > 0 ? "%03d " : " .  ", currentPage->name);
         cnt++;
         
         if ((cnt % 10) == 0) {

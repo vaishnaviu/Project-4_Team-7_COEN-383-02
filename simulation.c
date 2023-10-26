@@ -1,3 +1,4 @@
+#include "time.h"
 #include "page.h"
 
 int main(int argc, char* argv[]) {
@@ -98,7 +99,7 @@ int main(int argc, char* argv[]) {
 	        int i;
             for(i=0;i<10;i++) {
 		        int j;
-		        for(j=0;j<index;j++) 
+		        for(j=0;j<index;j++) {
                     if(Q[j].duration > 0) {
                             Q[j].PGCRR = next_page_number(Q[j].PGCRR,Q[j].size);
                             if(pages_in_memory(&pl,Q[j].name,Q[j].PGCRR)) {
@@ -131,7 +132,7 @@ int main(int argc, char* argv[]) {
                         swappingInProcess++;
                         PageAccess++;
                     }
-
+            }
             }
 	        int j;
 
