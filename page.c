@@ -1,4 +1,4 @@
-#include "PAGE.h"
+#include "page.h"
 
 void initialize_pagelist(LISTOFPAGES* pl) {
     // Allocate memory for the head of the page list.
